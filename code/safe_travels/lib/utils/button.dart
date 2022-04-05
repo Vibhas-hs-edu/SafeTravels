@@ -33,9 +33,7 @@ class SafeTravelsButton extends StatelessWidget {
           //onPrimary: this.foreGroundColor //Foreground
           ),
       child: Text(this.text),
-      onPressed: () => {
-        print('Hello')
-      },
+      onPressed: () => {onPressed()},
     );
   }
 }

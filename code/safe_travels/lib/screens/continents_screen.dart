@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safe_travels/custom/BorderBox.dart';
+import 'package:safe_travels/utils/button.dart';
 import 'package:safe_travels/utils/constants.dart';
 import 'package:safe_travels/utils/widget_functions.dart';
 //import 'package:safe_travels/utils/widget_functions.dart';
@@ -26,48 +27,42 @@ class ContinentsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-              Padding(
-              padding: EdgeInsets.symmetric(horizontal: padding, vertical: padding),
-              child:
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.asset(
-                    'assets/images/Picture_2_Travel1.png',
-                      width : 170,
-                      //height : 150,
-                    ))),
-              Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: padding, vertical: padding),
-              child: 
-                BorderBox(
-                    width: 50,
-                    height: 50,
-                    child: Icon(Icons.menu, color: COLOR_BLUE))
-            )
-          ]),  
-        Row(children: [
+                Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: padding, vertical: padding),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
+                        child: Image.asset(
+                          'assets/images/SafeTravels.png',
+                          width: 300,
+                          height: 200,
+                        ))),
+                Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: padding, vertical: padding),
+                    child: BorderBox(
+                        width: 50,
+                        height: 50,
+                        child: Icon(Icons.menu, color: COLOR_BLUE)))
+              ]),
+          addVericalSpace(4 * padding),
           Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 2*padding),
-              child: 
-              Text('SafeTravels', style: TEXT_THEME_DEFAULT.headline1)
-            )
-        ]),
-        addVericalSpace(4*padding),
-        Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 2*padding),
-              child: 
-              Text('Ready to travel? Pick a region below!', style: TEXT_THEME_DEFAULT.bodyText1)
-            ),
-        addVericalSpace(4*padding),
+              padding: EdgeInsets.symmetric(horizontal: 2 * padding),
+              child: Text('Ready to travel? Pick a region below!!',
+                  style: TEXT_THEME_DEFAULT.bodyText1)),
+          addVericalSpace(4 * padding),
           Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 2*padding),
-              child: 
-              DropDownWidget()
-            )
+              padding: EdgeInsets.symmetric(horizontal: 2 * padding),
+              child: DropDownWidget()),
+          addVericalSpace(4 * padding),
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2 * padding),
+              child: SafeTravelsButton(
+                onPressed: () => {},
+                foreGroundColor: COLOR_BLACK,
+                backGroundColor: COLOR_DARK_BLUE,
+                text: "Get Started!!",
+              ))
         ],
       ),
     )));

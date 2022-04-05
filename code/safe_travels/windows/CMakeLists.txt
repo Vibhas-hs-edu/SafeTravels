@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.15)
-project(safe_travels LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.14)
+project(flutter_application_1 LANGUAGES CXX)
 
-set(BINARY_NAME "safe_travels")
+set(BINARY_NAME "flutter_application_1")
 
 cmake_policy(SET CMP0063 NEW)
 

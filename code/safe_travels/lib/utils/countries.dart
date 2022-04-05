@@ -25,10 +25,10 @@ class MyCountryAppState extends State<MyCountryApp> {
         theme: CountryTheme(
           isShowFlag: true,
           isShowTitle: true,
-          isShowCode: true,
+          isShowCode: false,
           isDownIcon: true,
           showEnglishName: false,
-          labelColor: Colors.blueAccent,
+          labelColor: Colors.amberAccent,
         ),
         // or
         initialSelection: 'US',
