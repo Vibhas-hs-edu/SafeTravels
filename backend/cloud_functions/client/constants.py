@@ -1,0 +1,1 @@
+BASE_CLOUD_URL = "https://us-central1-safetravels-349107.cloudfunctions.net"

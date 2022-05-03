@@ -1,0 +1,32 @@
+localinstance
+user : root
+password : rootpwd@123
+
+DBMS: MySQL (ver. 8.0.29)
+Case sensitivity: plain=mixed, delimited=mixed
+Driver: MySQL Connector/J (ver. mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0), JDBC4.2)
+Ping: 11 ms
+SSL: yes
+
+drop user safetravels_user@localhost;
+flush privileges;
+CREATE USER 'safetravels_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'safetravels_pwd';
+GRANT ALL PRIVILEGES ON *.* TO 'safetravels_user'@'localhost' WITH GRANT OPTION;
+
+
+drop user safetravels_user@localhost;
+flush privileges;
+CREATE USER 'safetravels_user'@'localhost' IDENTIFIED BY 'safetravels_pwd';
+GRANT ALL PRIVILEGES ON *.* TO 'safetravels_user'@'localhost' WITH GRANT OPTION;
+
+
+I have created Database on Google cloud SQL.
+
+Steps are:
+
+1) Create Google cloud SQL database.
+2) Add your IP address to authorized IP section in GCP MySQL database.
+
+Instance connection name
+
+safetravels-349107:us-central1:safetravels
