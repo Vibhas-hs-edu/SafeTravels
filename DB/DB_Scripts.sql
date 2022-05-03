@@ -6,7 +6,11 @@ drop table EntryRequirements;
 drop table SubAdvisory;
 drop table Advisory;
 drop table Countries;
+drop database safetravels;
 */
+create database safetravels;
+
+use safetravels;
 
 create table Countries
 (
