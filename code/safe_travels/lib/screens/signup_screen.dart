@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:safe_travels/custom/BorderBox.dart';
 import 'package:safe_travels/utils/constants.dart';
+import 'package:safe_travels/utils/models.dart';
 import 'package:safe_travels/utils/signup_form.dart';
 import 'package:safe_travels/utils/widget_functions.dart';
 
 class SignUpScreen extends StatelessWidget {
+  final List<ImageAttributesWrapper> imageAttributesWrapper;
+  final String? country;
+  final String? country_code;
+  @override
+  SignUpScreen(
+      {Key? key,
+      required this.imageAttributesWrapper,
+      required this.country,
+      required this.country_code});
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final double padding = 8;
     final ThemeData themeData = Theme.of(context);
+    print("Inside wrapper. " +
+        this.imageAttributesWrapper[0].firstImageAttributes.imageText);
     return SafeArea(
         child: Scaffold(
             resizeToAvoidBottomInset: false,
@@ -71,7 +84,10 @@ class SignUpScreen extends StatelessWidget {
                                 style: themeData.textTheme.bodyText1)
                           ])),
                   addVericalSpace(12 * padding),
-                  SignupForm()
+                  SignupForm(
+                      imageAttributesWrapper: this.imageAttributesWrapper,
+                      country: this.country,
+                      country_code: this.country_code)
                 ],
               ),
             )));

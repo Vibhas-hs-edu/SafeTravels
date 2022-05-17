@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:safe_travels/screens/maincontent_screen.dart';
 import 'package:safe_travels/utils/constants.dart';
-
-import '../screens/countries_screen.dart';
+import 'package:safe_travels/utils/models.dart';
 import 'button.dart';
 
 // Define a custom Form widget.
 class SignupForm extends StatefulWidget {
-  const SignupForm({Key? key}) : super(key: key);
+  final List<ImageAttributesWrapper> imageAttributesWrapper;
+  final String? country;
+  final String? country_code;
+  const SignupForm(
+      {Key? key,
+      required this.imageAttributesWrapper,
+      required this.country,
+      required this.country_code})
+      : super(key: key);
 
   @override
   SignupFormState createState() {
@@ -66,7 +73,11 @@ class SignupFormState extends State<SignupForm> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainContentScreen()),
+                        builder: (context) => MainContentScreen(
+                            imageAttributesWrapper:
+                                widget.imageAttributesWrapper,
+                            country: widget.country,
+                            country_code: widget.country_code)),
                   )
                 }
             },

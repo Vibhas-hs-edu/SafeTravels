@@ -40,7 +40,7 @@ class EntryRequirements {
   final String headerText;
 
   final String mainPoint;
-  final List<String> subPoints;
+  List<String> subPoints;
   EntryRequirements(
       {required this.headerText,
       required this.mainPoint,
@@ -51,11 +51,11 @@ class CDCAdvisory {
   final String headerText;
 
   final String mainPoint;
-  final String subPoint;
+  List<String> subPoints;
   CDCAdvisory(
       {required this.headerText,
       required this.mainPoint,
-      required this.subPoint});
+      required this.subPoints});
 }
 
 class TravelersFeedback {
@@ -77,6 +77,8 @@ class TripAdvisory {
 class Destination {
   final String imagePath;
   final double rating;
+  final double height;
+  final double width;
   final List<String> tags;
   final String priceDescription;
   final String authorName;
@@ -86,6 +88,8 @@ class Destination {
   Destination(
       {required this.imagePath,
       required this.rating,
+      required this.height,
+      required this.width,
       required this.tags,
       required this.priceDescription,
       required this.authorName,
@@ -94,18 +98,23 @@ class Destination {
 }
 
 class AirBnb {
-  final List<String> imagePath;
-  final String subText;
-  final String headerText;
-
-  final String mainPoint;
-  final String subPoint;
+  List<String> imageUrls;
+  double guests;
+  double beds;
+  double bedrooms;
+  double baths;
+  String title;
+  String caption;
+  String description;
   AirBnb(
-      {required this.imagePath,
-      required this.subText,
-      required this.headerText,
-      required this.mainPoint,
-      required this.subPoint});
+      {this.imageUrls = const [],
+      this.guests = 0.0,
+      this.beds = 0.0,
+      this.bedrooms = 0.0,
+      this.baths = 0.0,
+      this.title = "",
+      this.caption = "",
+      this.description = ""});
 }
 
 class PhotoGallery {

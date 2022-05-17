@@ -1,0 +1,6 @@
+# Function dependencies, for example:
+# package>=version
+mysql-connector-python
+PyMySQL
+cloud-sql-python-connector
+SQLAlchemy

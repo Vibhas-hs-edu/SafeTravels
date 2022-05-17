@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:safe_travels/utils/constants.dart';
 import 'package:safe_travels/utils/models.dart';
 
 class TripAdvisorSf extends StatefulWidget {
@@ -34,14 +33,14 @@ class _TripAdvisorSfState extends State<TripAdvisorSf> {
         child: Padding(
           padding: EdgeInsets.all(5),
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Image.asset(widget.destination.imagePath,
-                width: double.infinity, height: 200),
-            Text(destinationNameFormatted, textAlign: TextAlign.left),
-            Text(tagsFormatted, textAlign: TextAlign.left),
-            Text(widget.destination.priceDescription),
-            Text("User : " + widget.destination.authorName),
-            Text(widget.destination.destinationFeedBack,
-                textAlign: TextAlign.center)
+            Expanded(
+                child: Image.network(widget.destination.imagePath, width: 300)),
+            Text(destinationNameFormatted, textAlign: TextAlign.left)
+            //Text(tagsFormatted, textAlign: TextAlign.left)
+            //Text(widget.destination.priceDescription),
+            //Text("User : " + widget.destination.authorName),
+            //Text(widget.destination.destinationFeedBack,
+            //textAlign: TextAlign.center)
           ]),
         ));
   }

@@ -7,15 +7,17 @@ class SafeTravelsStylishButton extends StatelessWidget {
   final Color foreGroundColor;
   final double fontSize;
   final String text;
+  final bool showArrow;
   final void Function() onPressed;
 
   @override
   SafeTravelsStylishButton(
       {Key? key,
-      this.width = 130.0,
+      this.width = 180.0,
       this.height = 50.0,
       this.fontSize = 28.0,
       this.backGroundColor = Colors.red,
+      this.showArrow = false,
       required this.onPressed,
       required this.foreGroundColor,
       required this.text})
@@ -24,18 +26,14 @@ class SafeTravelsStylishButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      // ignore: avoid_unnecessary_containers
-      child: Container(
+        // ignore: avoid_unnecessary_containers
         child: Container(
-          constraints: BoxConstraints(maxWidth: width, minHeight: height),
-          margin: EdgeInsets.all(10),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: backGroundColor),
-            onPressed: () {
-              onPressed();
-            },
-            child: Padding(
-              padding: EdgeInsets.all(0),
+            constraints: BoxConstraints(maxWidth: width, minHeight: height),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: backGroundColor),
+              onPressed: () {
+                onPressed();
+              },
               child: Container(
                 alignment: Alignment.center,
                 child: Row(
@@ -44,21 +42,18 @@ class SafeTravelsStylishButton extends StatelessWidget {
                     Text(
                       text,
                       style: TextStyle(
-                        fontSize: 15,
                         color: foreGroundColor,
                       ),
                     ),
-                    Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                    )
+                    this.showArrow
+                        ? Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          )
+                        : SizedBox.shrink()
                   ],
                 ),
               ),
-            ),
-          ),
-        ),
-      ),
-    );
+            )));
   }
 }
