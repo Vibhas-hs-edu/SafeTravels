@@ -1,3 +1,23 @@
 TripAdvisor 89$
 SkyScanner not allowed for students
 foursquare raised a request with them
+
+Amadeus Safetravels_pwd@123
+
+API Key
+
+RdxMCqHKfuE4TALu9dbjGYxmLANF1k4I
+
+API Secret
+
+lG2W261ADv2UqCGr
+
+
+Google console API Key
+
+AIzaSyDhLiZ1e1FFUpwuI-FjhdteBEZ7Ns-BVdw
+
+
+OpenTripMapAPI
+
+5ae2e3f221c38a28845f05b6aff8d986629ce33e739eecb1e4c74b12

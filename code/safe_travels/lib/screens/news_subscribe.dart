@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:safe_travels/custom/BorderBox.dart';
 import 'package:safe_travels/screens/countries_screen.dart';
-import 'package:safe_travels/screens/maincontent_screen.dart';
 import 'package:safe_travels/screens/signup_screen.dart';
 import 'package:safe_travels/utils/checkbox.dart';
 import 'package:safe_travels/utils/constants.dart';
@@ -9,6 +8,11 @@ import 'package:safe_travels/utils/icon_button.dart';
 import 'package:safe_travels/utils/models.dart';
 
 class SubscribeScreen extends StatefulWidget {
+  final String? country;
+  final String? country_code;
+  @override
+  SubscribeScreen({Key? key, required this.country, required this.country_code})
+      : super(key: key);
   @override
   State<SubscribeScreen> createState() => _SubscribeScreenState();
 }
@@ -191,7 +195,11 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SignUpScreen()),
+        MaterialPageRoute(
+            builder: (context) => SignUpScreen(
+                imageAttributesWrapper: this.imageAttributesWrapperList,
+                country: widget.country,
+                country_code: widget.country_code)),
       );
     }
   }
