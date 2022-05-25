@@ -50,7 +50,7 @@ class _CountriesScreenState extends State<CountriesScreen> {
                   child: Image.asset(
                     'assets/images/safetravels.png',
                     width: 300,
-                    height: 200,
+                    height: 180,
                   ))),
           addVericalSpace(10 * padding),
           Padding(

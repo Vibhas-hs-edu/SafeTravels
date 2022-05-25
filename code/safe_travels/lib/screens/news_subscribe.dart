@@ -21,25 +21,24 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
   final double padding = 8;
   final imageAttributesWrapperList = <ImageAttributesWrapper>[
     ImageAttributesWrapper(
+        secondImageAttributes: ImageAttributes(
+            imagePath: 'assets/images/WhyGo.jpeg', imageText: 'Why Go?'),
         firstImageAttributes: ImageAttributes(
             imagePath: 'assets/images/EntryRequirements.png',
-            imageText: 'Entry Requirements'),
-        secondImageAttributes: ImageAttributes(
-            imagePath: 'assets/images/CovidStats.png',
-            imageText: 'Covid Stats')),
+            imageText: 'Entry Requirements')),
     ImageAttributesWrapper(
         firstImageAttributes: ImageAttributes(
-            imagePath: 'assets/images/InteractiveMap.png',
-            imageText: 'Interactive Map'),
+            imagePath: 'assets/images/TripAdvisorInitial.png',
+            imageText: 'Trip Advisor'),
         secondImageAttributes: ImageAttributes(
             imagePath: 'assets/images/CDC.png', imageText: 'CDC')),
     ImageAttributesWrapper(
-        firstImageAttributes: ImageAttributes(
-            imagePath: 'assets/images/PhotoGallery.png',
-            imageText: 'Photo Gallery'),
-        secondImageAttributes: ImageAttributes(
-            imagePath: 'assets/images/TravellersReports.png',
-            imageText: "Travelers' Reports")),
+      firstImageAttributes: ImageAttributes(
+          imagePath: 'assets/images/AirBnbInitial.png', imageText: "airbnb"),
+      secondImageAttributes: ImageAttributes(
+          imagePath: 'assets/images/PhotoGallery.png',
+          imageText: 'Photo Gallery'),
+    ),
     ImageAttributesWrapper(
         firstImageAttributes: ImageAttributes(
             imagePath: 'assets/images/TravelNews.png',
@@ -49,17 +48,17 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
             imageText: "Travelers Deals"))
   ];
 
-  String _image1 = 'assets/images/EntryRequirements.png';
-  String _text1 = 'Entry Requirements';
-  String _image2 = 'assets/images/CDC.png';
-  String _text2 = 'COVID Stats';
+  String _image1 = 'assets/images/WhyGo.jpeg';
+  String _text1 = 'Why Go?';
+  String _image2 = 'assets/images/EntryRequirements.png';
+  String _text2 = 'Entry Requirements';
   bool _checkBox1 = false;
   bool _checkBox2 = false;
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
-    //final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
           body: Container(
@@ -80,85 +79,98 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                 borderRadius: BorderRadius.circular(5),
                 child: Image.asset(
                   'assets/images/safetravels.png',
-                  width: 170,
-                  //height : 150,
+                  width: 300,
+                  height: 180,
                 ))),
-        Padding(
-            padding: EdgeInsets.fromLTRB(0, 2 * padding, 0, 0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.asset(
-                  '$_image1',
-                  width: 250,
-                  //height : 150,
-                ))),
-        Row(mainAxisAlignment: MainAxisAlignment.start,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(padding: EdgeInsets.symmetric(horizontal: 4.5 * padding)),
-              Text(
-                '$_text1',
-                style: TEXT_THEME_DEFAULT_BLUE.headline4,
-              ),
-              Padding(
+        Column(children: [
+          Container(
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 2 * padding, 0, 0),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Image.asset(
+                        '$_image1',
+                        height: size.height / 6,
+                        width: 250,
+                      )))),
+          Container(
+              constraints: BoxConstraints(maxHeight: 30),
+              child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 4.5 * padding)),
+                    Text(
+                      '$_text1',
+                      style: TEXT_THEME_DEFAULT_BLUE.headline4,
+                    ),
+                    Padding(
+                        padding: EdgeInsets.fromLTRB(0, padding, 0, 0),
+                        child: CheckBoxSf(
+                            imageAttributes: imageAttributesWrapperList[index]
+                                .firstImageAttributes))
+                  ])),
+          Container(
+              child: Padding(
                   padding: EdgeInsets.fromLTRB(0, padding, 0, 0),
-                  child: CheckBoxSf(
-                      imageAttributes: imageAttributesWrapperList[index]
-                          .firstImageAttributes))
-            ]),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Image.asset(
+                        '$_image2',
+                        width: 250,
+                        height: size.height / 6,
+                      )))),
+          Container(
+              constraints: BoxConstraints(maxHeight: 30),
+              child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 4.5 * padding)),
+                    Text(
+                      '$_text2',
+                      style: TEXT_THEME_DEFAULT_BLUE.headline4,
+                    ),
+                    Text(''),
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 3 * padding, vertical: padding),
+                        child: CheckBoxSf(
+                            imageAttributes: imageAttributesWrapperList[index]
+                                .secondImageAttributes))
+                  ]))
+        ]),
         Padding(
-            padding: EdgeInsets.fromLTRB(0, padding, 0, 0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.asset(
-                  '$_image2',
-                  width: 250,
-                  //height : 150,
-                ))),
-        Row(mainAxisAlignment: MainAxisAlignment.start,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(padding: EdgeInsets.symmetric(horizontal: 4.5 * padding)),
-              Text(
-                '$_text2',
-                style: TEXT_THEME_DEFAULT_BLUE.headline4,
-              ),
-              Text(''),
-              Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 3 * padding, vertical: padding),
-                  child: CheckBoxSf(
-                      imageAttributes: imageAttributesWrapperList[index]
-                          .secondImageAttributes))
-            ]),
-        Expanded(
+            padding: EdgeInsets.all(16),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-              Padding(
-                  padding: EdgeInsets.fromLTRB(2 * padding, 0, 0, 0),
-                  child: BorderBox(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      width: 120,
-                      height: 40,
-                      child: IconButtonWidget(
-                        icon: Icons.arrow_back_ios_sharp,
-                        onPressed: () {
-                          onPrevious();
-                        },
-                      ))),
-              Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 2 * padding, 0),
-                  child: BorderBox(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      width: 120,
-                      height: 40,
-                      child: IconButtonWidget(
-                          icon: Icons.arrow_forward_ios_sharp,
-                          onPressed: () {
-                            onNext();
-                          }))),
-            ]))
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(2 * padding, 0, 0, 0),
+                      child: BorderBox(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          width: 120,
+                          height: 40,
+                          child: IconButtonWidget(
+                            icon: Icons.arrow_back_ios_sharp,
+                            onPressed: () {
+                              onPrevious();
+                            },
+                          ))),
+                  Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 2 * padding, 0),
+                      child: BorderBox(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          width: 120,
+                          height: 40,
+                          child: IconButtonWidget(
+                              icon: Icons.arrow_forward_ios_sharp,
+                              onPressed: () {
+                                onNext();
+                              }))),
+                ]))
       ]))),
     );
   }
