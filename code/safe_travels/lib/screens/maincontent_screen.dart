@@ -66,7 +66,7 @@ class _MainContentScreenState extends State<MainContentScreen> {
           text) {
         return widget.imageAttributesWrapper[i].firstImageAttributes.isChecked;
       } else if (widget
-              .imageAttributesWrapper[i].firstImageAttributes.imageText ==
+              .imageAttributesWrapper[i].secondImageAttributes.imageText ==
           text) {
         return widget.imageAttributesWrapper[i].secondImageAttributes.isChecked;
       }
@@ -94,30 +94,16 @@ class _MainContentScreenState extends State<MainContentScreen> {
   void _addChildren() async {
     //final double padding = 5.0;
     var headerDisplayWidgetFuture = buildHeaderDisplay();
-    var whyGoWidgetFuture = buildWhyGoWidget();
-    var entryRequirementsWidgetFuture = buildEntryRequirementsWidget();
-    var cdcAdvisoryWidgetFuture = buildCDCAdvisoryWidget();
-    var tripAdvisoryWidgetFuture = buildTripAdvisoryWidget();
-    var airBnbWidgetFuture = buildAirBnbWidget();
-    var imagesCollageWidgetFuture = buildImagesCollageWidget();
-    var contactUsWidgetFuture = buildContactSafeTravelsWidget();
-    var socialMediaShareWidgetFuture = buildSocialMediaShareWidget();
-
     var headerDisplayWidget = await headerDisplayWidgetFuture;
-    var whyGoWidget = await whyGoWidgetFuture;
-    var entryRequirementsWidget = await entryRequirementsWidgetFuture;
-    var cdcAdvisoryWidget = await cdcAdvisoryWidgetFuture;
-    var tripAdvisoryWidget = await tripAdvisoryWidgetFuture;
-    var airBnbWidget = await airBnbWidgetFuture;
-    var imagesCollageWidget = await imagesCollageWidgetFuture;
-    var contactUsWidget = await contactUsWidgetFuture;
-    var socialMediaShareWidget = await socialMediaShareWidgetFuture;
-
     if (headerDisplayWidget != null) {
       setState(() {
         this.w.add(headerDisplayWidget);
       });
     }
+
+    var whyGoWidgetFuture = buildWhyGoWidget();
+
+    var whyGoWidget = await whyGoWidgetFuture;
 
     if (whyGoWidget != null) {
       setState(() {
@@ -125,11 +111,17 @@ class _MainContentScreenState extends State<MainContentScreen> {
       });
     }
 
+    var entryRequirementsWidgetFuture = buildEntryRequirementsWidget();
+    var entryRequirementsWidget = await entryRequirementsWidgetFuture;
+
     if (entryRequirementsWidget != null) {
       setState(() {
         this.w.add(entryRequirementsWidget);
       });
     }
+
+    var cdcAdvisoryWidgetFuture = buildCDCAdvisoryWidget();
+    var cdcAdvisoryWidget = await cdcAdvisoryWidgetFuture;
 
     if (cdcAdvisoryWidget != null) {
       setState(() {
@@ -137,29 +129,39 @@ class _MainContentScreenState extends State<MainContentScreen> {
       });
     }
 
+    var tripAdvisoryWidgetFuture = buildTripAdvisoryWidget();
+    var tripAdvisoryWidget = await tripAdvisoryWidgetFuture;
     if (tripAdvisoryWidget != null) {
       setState(() {
         this.w.add(tripAdvisoryWidget);
       });
     }
 
+    var airBnbWidgetFuture = buildAirBnbWidget();
+    var airBnbWidget = await airBnbWidgetFuture;
     if (airBnbWidget != null) {
       setState(() {
         this.w.add(airBnbWidget);
       });
     }
-
+    var imagesCollageWidgetFuture = buildImagesCollageWidget();
+    var imagesCollageWidget = await imagesCollageWidgetFuture;
     if (imagesCollageWidget != null) {
       setState(() {
         this.w.add(imagesCollageWidget);
       });
     }
+    var contactUsWidgetFuture = buildContactSafeTravelsWidget();
 
+    var contactUsWidget = await contactUsWidgetFuture;
     if (contactUsWidget != null) {
       setState(() {
         this.w.add(contactUsWidget);
       });
     }
+
+    var socialMediaShareWidgetFuture = buildSocialMediaShareWidget();
+    var socialMediaShareWidget = await socialMediaShareWidgetFuture;
 
     if (socialMediaShareWidget != null) {
       setState(() {
@@ -200,9 +202,9 @@ class _MainContentScreenState extends State<MainContentScreen> {
   }
 
   Future<Widget?> buildWhyGoWidget() async {
-    /*if (!this.isChecked("CDC")) {
+    if (!this.isChecked("Why Go?")) {
       return null;
-    }*/
+    }
 
     Server s = new Server();
     Translator t = new Translator();
@@ -409,6 +411,9 @@ class _MainContentScreenState extends State<MainContentScreen> {
   }
 
   Future<Widget?> buildTripAdvisoryWidget() async {
+    if (!this.isChecked("Trip Advisor")) {
+      return null;
+    }
     Server s = new Server();
     Translator t = new Translator();
     var placesFutureResponse = await s.get_places(widget.country_code);
@@ -433,6 +438,9 @@ class _MainContentScreenState extends State<MainContentScreen> {
   }
 
   Future<Widget?> buildAirBnbWidget() async {
+    if (!this.isChecked("airbnb")) {
+      return null;
+    }
     Server s = new Server();
     Translator t = new Translator();
     var airBnbDetailsFuture = await s.get_air_bnb_details(widget.country);
@@ -456,6 +464,9 @@ class _MainContentScreenState extends State<MainContentScreen> {
   }
 
   Future<Widget?> buildImagesCollageWidget() async {
+    if (!this.isChecked("Photo Gallery")) {
+      return null;
+    }
     Server s = new Server();
     Translator t = new Translator();
     var imageUrls = await s.get_country_images(widget.country);
