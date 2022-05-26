@@ -1,0 +1,30 @@
+1) Clone the repository.
+	- Check if github account is set or else make the repository public and clone the repository.
+2) Connect your ios device to macbook.
+3) Make sure your ios is unlocked.
+4) Accept the popup that asks whether you trust your mac computer. It prompts you for your iphone passcode. 
+5) You should be able to see the ios device in your IDE.
+6) Open the repository in Xcode.
+	- Go to flutter folder
+	- In my case it is /Users/vibhasnaik/Documents/Projects/github/SafeTravels/code/safe_travels
+7) Run the following command.
+	open ios/Runner.xcworkspace
+8) In Xcode make sure that your device is connected.
+9) Also in signing and capabilities make sure that Automatically manage signing checkbox is checked.
+10) Team add account
+    - Add your apple id account here.
+11) Select the apple id account
+12) Create your unique bundle id.
+	com.development.safetravels.vibhas
+13) Go to IDE and click on run. Run app with your device selected.
+14) XCode will prompt you to unlock keychain.
+15) Enter your macbook password and clock on allow.
+16) You might see and error which says it has an invalid code signature.
+17) On your phone go to settings.
+	General -> Device Management -> Apple development -> Trust  your certificate.
+18) Run Flutter app on your phone.
+
+Common errors
+1) Operation not permitted
+	System Preferences -> Security & Privacy -> Privacy -> Full Disk Access and marked Xcode.
+2) I had to update the Runner project as well.
